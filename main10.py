@@ -4,23 +4,24 @@ import sys, random
 assert sys.version_info >= (3,7), "This script requires at least Python 3.7"
 
 
-print('Greetings!')
+print('Greetings!')#
 colors = ['red','orange','yellow','green','blue','violet','purple']
 play_again = ''
 best_count = sys.maxsize            # the biggest number
 
 while (play_again != 'n' and play_again != 'no'):
-    match_color = random.choice(colors)
-    count = 0
-    color = ''
-    while (color != match_color):
+    match_color = random.choice(colors)  
+    print(match_color)        #the computer will assign one of the element in "colors" to match_color
+    count = 0                        #the count is "0" in the beginning
+    color = ''                       #color is an empty string
+    while (color != match_color):               #a whileloop: when the color does not equal to match_color
         color = input("\nWhat is my favorite color? ")  #\n is a special code that adds a new line
-        color = color.lower().strip()
-        count += 1
-        if (color == match_color):
-            print('Correct!')
-        else:
-            print('Sorry, try again. You have guessed {guesses} times.'.format(guesses=count))
+        color = color.lower().strip()               #convert all the input letters into lower cases, then ignore the leading and trailing whitespaces
+        count += 1              #  1 count
+        if (color == match_color):             #if the color does equal to the match_color
+            print('Correct!')                           # print "correct" 
+        else:                                   
+            print('Sorry, try again. You have guessed {} times.'.format(count))  #
     
     print('\nYou guessed it in {} tries!'.format(count))
 
